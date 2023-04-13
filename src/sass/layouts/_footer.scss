@@ -1,16 +1,15 @@
 @use '../utilities/variables';
 
 .footer__container {
-  height: 100px;
-  width: 100%;
+  min-width: 310px;
+  margin-top: 40px;
   background-color: #f7f7f7; // change to variable
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  bottom: 0;
+
   .footer__container-text {
-    width: 320px;
+    padding: 30px;
     font: 400 14px/16.5px Roboto;
     color: #545454; // change to variable
     text-align: center;
@@ -21,8 +20,8 @@
 }
 @media screen and (min-width: 768px) {
   .footer__container {
+    margin-top: 60px;
     .footer__container-text {
-      width: 768px;
       font-size: 16px;
       line-height: 18.75px;
     }
