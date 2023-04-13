@@ -6,3 +6,9 @@
   padding: 0;
 }
 
+// had to add this global class to be able to move footer to the bottom
+
+body {
+  position: relative;
+  min-height: 100vh;
+}

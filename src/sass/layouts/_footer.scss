@@ -1,2 +1,33 @@
 @use '../utilities/variables';
 
+.footer__container {
+  background-color: #f7f7f7; // change to variable
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 46px;
+  .footer__container-text {
+    width: 320px;
+    font: 400 14px/16.5px Roboto;
+    color: #545454; // change to variable
+    text-align: center;
+    padding: 28px 28px;
+    position: absolute;
+    bottom: 0;
+  }
+  a {
+    color: #545454; // change to variable or add global class for links
+  }
+}
+@media screen and (min-width: 768px) {
+  .footer__container {
+    padding: 37.5px;
+    margin-top: 60px;
+    .footer__container-text {
+      width: 768px;
+      font-size: 16px;
+      line-height: 18.75px;
+      padding: 28px 36px;
+    }
+  }
+}
