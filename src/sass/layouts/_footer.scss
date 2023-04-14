@@ -2,7 +2,6 @@
 
 .footer__container {
   min-width: 310px;
-  margin-top: 40px;
   background-color: #f7f7f7; // change to variable
   display: flex;
   justify-content: center;
@@ -20,7 +19,6 @@
 }
 @media screen and (min-width: 768px) {
   .footer__container {
-    margin-top: 60px;
     .footer__container-text {
       font-size: 16px;
       line-height: 18.75px;
