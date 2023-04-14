@@ -1,1 +1,42 @@
-<h1>test</h1>
+<header class="header">
+  <div class="header__container">
+    <section class="header__bar">
+      <div class="logos">
+        <a
+          ><svg class="header__filmSvg" width="24" height="24">
+            <use href="./images/film.svg#icon-film"></use></svg></a>
+        <a class="header__logo log" href=""> Filmoteka</a>
+      </div>
+      <nav>
+        <ul class="header__list">
+          <li class="header__item">
+            <a class="header__link headerCurrent__link" href="">HOME</a>
+          </li>
+          <li class="header__item">
+            <a class="header__link" href="">MY LIBRARY</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <form class="header__form">
+      <input
+        class="header__input"
+        type="text"
+        name="text"
+        placeholder="Search movie"
+      />
+      <a
+        ><svg class="header__seSvg" width="12" height="12">
+          <use href="./images/search-2.svg#icon-search-2"></use></svg></a>
+    </form>
+    <div class="header__no-match">
+      <h3 class="header__no-match-text">
+        Search result not successful. Enter the correct movie name
+      </h3>
+    </div>
+    <div class="header__button">
+      <button type="button" class="library_button">Watched</button>
+      <button type="button" class="library_button">queue</button>
+    </div>
+  </div>
+</header>
