@@ -1,2 +1,46 @@
 @use '../utilities/variables';
 
+
+* {
+    box-sizing: border-box;
+  }
+
+ul {
+    list-style: none;
+}
+
+
+
+
+.card-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    
+}
+
+
+
+.movie-poster {
+    width: 274px;
+    height: 398px;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.movie_title {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Roboto';
+    font-style: normal;
+    line-height: 30px;
+    color: #000000;
+}
+
+@media (min-width:768px) {
+    .responsive-three-column-grid {
+        display: grid;
+        grid-auto-rows: 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
