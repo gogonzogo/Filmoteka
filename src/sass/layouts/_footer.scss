@@ -1,2 +1,27 @@
 @use '../utilities/variables';
 
+.footer__container {
+  min-width: 310px;
+  background-color: #f7f7f7; // change to variable
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .footer__container-text {
+    padding: 30px;
+    font: 400 14px/16.5px Roboto;
+    color: #545454; // change to variable
+    text-align: center;
+  }
+  a {
+    color: #545454; // change to variable or add global class for links
+  }
+}
+@media screen and (min-width: 768px) {
+  .footer__container {
+    .footer__container-text {
+      font-size: 16px;
+      line-height: 18.75px;
+    }
+  }
+}
