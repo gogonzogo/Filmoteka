@@ -21,7 +21,7 @@ const showTrendingMovies = async () => {
 }
 
 
-showTrendingMovies();
+// showTrendingMovies();
 
 // function that renders movie info to the dom
 function renderInfo(movies) {
