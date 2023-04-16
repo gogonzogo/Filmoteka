@@ -14,124 +14,9 @@
 }
 
 .header__bar {
-
+    margin-bottom: 50px;
     display: flex;
     justify-content: space-between;
-}
-
-.header__logo {
-    display: none;
-    font-family: 'Roboto';
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 35px;
-    color: variables.$primary-text-color;
-    margin-right: 303px;
-    margin-left: 10px;
-
-}
-
-.header__filmSvg {
-    display: flex;
-    fill: variables.$primary-text-color;
-
-
-}
-
-.header__form {
-    padding-top: 41px;
-    display: flex;
-    justify-content: center;
-}
-
-.header__input {
-    width: 280px;
-    border-style: hidden;
-    border-bottom: 0.5px solid #ffff;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    color: variables.$primary-text-color;
-    background: transparent;
-
-}
-
-.header__seSvg {
-
-    display: flex;
-    margin-left: -15px;
-    margin-bottom: -15px;
-}
-
-
-
-.header__no-match {
-    display: none;
-}
-
-.header__button {
-    display: none;
-    flex-direction: row;
-    justify-content: center;
-}
-
-
-.library_button:not(:last-child) {
-    margin-right: 20px;
-}
-
-.header__no-match-text {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 16px;
-    display: flex;
-    align-items: center;
-
-    color: #FF001B;
-}
-
-.header__list {
-    padding-top: 12px;
-    display: flex;
-}
-
-.header__item:not(:last-child) {
-    padding-right: 39px;
-
-}
-
-.header__link {
-    display: flex;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 14px;
-    text-transform: uppercase;
-    color: variables.$primary-text-color;
-    transition-property: color;
-
-
-}
-
-.headerCurrent__link {
-    position: relative;
-    color: variables.$primary-text-color;
-}
-
-.headerCurrent__link::after {
-    position: absolute;
-    content: "";
-    width: 34px;
-    height: 3px;
-    background: variables.$secondary-title-color;
-    top: 15px;
-    left: 0px;
-
-}
-
-.logos {
-    display: flex;
 }
 
 @media screen and (min-width: 320px) {
@@ -141,14 +26,14 @@
 
     .header {
 
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/header-mob.jpg);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/header-mobile-1x.jpg");
         margin-bottom: 20px;
 
         @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
             .header {
-                background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/header-mob@2x.jpg);
+                background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/header-mobile-2x.jpg");
             }
         }
     }
@@ -160,7 +45,8 @@
     }
 
     .header {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/header-ta.jpg);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+            url("../images/header-tablet-1x.jpg");
         margin-bottom: 60px;
 
         &__container {
@@ -171,7 +57,8 @@
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
             .header {
-                background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/header-ta@2x.jpg);
+                background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+                    url("../images/header-tablet-2x.jpg");
             }
         }
 
@@ -188,9 +75,10 @@
     }
 
     .header {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/header-co.jpg);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+            url("../images/header-desktop-1x.jpg");
 
-        &__container {
+        .header__container {
             padding: 46px 75px 97px 70px;
         }
 
@@ -198,11 +86,12 @@
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
             .header {
-                background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/header-co@2x.jpg);
+                background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+                    url("../images/header-desktop-2x.jpg");
             }
         }
 
-        &__logo {
+        .header__logo {
             display: flex;
         }
     }
