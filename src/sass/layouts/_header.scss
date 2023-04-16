@@ -11,6 +11,7 @@
 
 .header__container {
     padding: 46px 20px 97px 20px;
+    margin: 0 auto;
 }
 
 .header__bar {
@@ -75,10 +76,12 @@
     }
 
     .header {
+
         background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
             url("../images/header-desktop-1x.jpg");
 
         .header__container {
+            max-width: 1024px;
             padding: 46px 75px 97px 70px;
         }
 
