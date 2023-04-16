@@ -1,2 +1,10 @@
 @use '../utilities/variables';
 
+.library_button {
+    color: white;
+    background-color: transparent;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    padding: 13px 36px;
+    text-transform: uppercase;
+}

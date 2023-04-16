@@ -1,5 +1,9 @@
 @use '../utilities/variables';
+<<<<<<< Updated upstream
 @use '../base/global';
+=======
+
+>>>>>>> Stashed changes
 
 .header {
     background-repeat: no-repeat;
@@ -8,18 +12,32 @@
     background-size: cover;
     width: 100%;
     height: 230px;
+<<<<<<< Updated upstream
 
     &__container {
         padding: 46px 20px 97px 20px;
     }
 
     &__bar {
+=======
+}  
+
+.header__container {
+        padding: 46px 20px 97px 20px;
+    }
+
+ .header__bar {
+>>>>>>> Stashed changes
 
         display: flex;
         justify-content: space-between;
     }
 
+<<<<<<< Updated upstream
     &__logo {
+=======
+  .header__logo {
+>>>>>>> Stashed changes
         display: none;
         font-family: 'Roboto';
         font-weight: 500;
@@ -31,20 +49,32 @@
 
     }
 
+<<<<<<< Updated upstream
     &__filmSvg {
+=======
+        .header__filmSvg {
+>>>>>>> Stashed changes
         display: flex;
         fill: variables.$primary-text-color;
 
 
     }
 
+<<<<<<< Updated upstream
     &__form {
+=======
+        .header__form {
+>>>>>>> Stashed changes
         padding-top: 41px;
         display: flex;
         justify-content: center;
     }
 
+<<<<<<< Updated upstream
     &__input {
+=======
+        .header__input {
+>>>>>>> Stashed changes
         width: 280px;
         border-style: hidden;
         border-bottom: 0.5px solid #ffff;
@@ -56,6 +86,7 @@
 
     }
 
+<<<<<<< Updated upstream
     &__seSvg {
 
         display: flex;
@@ -64,6 +95,16 @@
     }
 
 }
+=======
+        .header__seSvg {
+
+        display: flex;
+        margin-left: -15px;
+        margin-bottom: -15px;
+    }
+
+
+>>>>>>> Stashed changes
 
 .header__no-match{
     display:  none;
@@ -75,6 +116,7 @@
             justify-content: center;
 }
 
+<<<<<<< Updated upstream
 .library_button{
     color: white;
     background-color: transparent;
@@ -83,6 +125,8 @@
     padding: 13px 36px;
     text-transform: uppercase;
 }
+=======
+>>>>>>> Stashed changes
 
 .library_button:not(:last-child) {
 margin-right: 20px;
@@ -125,9 +169,15 @@ margin-right: 20px;
 .headerCurrent__link {
     position: relative;
     color: variables.$primary-text-color;
+<<<<<<< Updated upstream
 
 
     &::after {
+=======
+}
+
+        .headerCurrent__link::after {
+>>>>>>> Stashed changes
         position: absolute;
         content: "";
         width: 34px;
@@ -137,20 +187,32 @@ margin-right: 20px;
         left: 0px;
 
     }
+<<<<<<< Updated upstream
 }
+=======
+
+>>>>>>> Stashed changes
 
 .logos {
     display: flex;
 }
 
+<<<<<<< Updated upstream
 @media screen and (min-width: 320px) and (max-width: 767px) {
+=======
+@media screen and (min-width: 480px)  {
+>>>>>>> Stashed changes
     .header__input {
             width: 280px;
     }
     .header {
 
         background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/header-mob.jpg);
+<<<<<<< Updated upstream
 
+=======
+        margin-bottom: 20px;
+>>>>>>> Stashed changes
         @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
@@ -161,13 +223,24 @@ margin-right: 20px;
     }
 }
 
+<<<<<<< Updated upstream
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+=======
+@media screen and (min-width: 768px)  {
+>>>>>>> Stashed changes
 .header__input {
         width: 336px;
     }
     .header {
         background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/header-ta.jpg);
+<<<<<<< Updated upstream
 
+=======
+margin-bottom: 60px;
+        &__container {
+                padding: 46px 75px 97px 70px;
+            }
+>>>>>>> Stashed changes
         @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
@@ -189,7 +262,13 @@ margin-right: 20px;
         }
     .header {
         background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(/src/images/header-co.jpg);
+<<<<<<< Updated upstream
 
+=======
+    &__container {
+        padding: 46px 75px 97px 70px;
+    }
+>>>>>>> Stashed changes
         @media (min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
