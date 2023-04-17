@@ -154,25 +154,26 @@ a {
 }
 
 .header__form {
+  width: 280px;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  border-bottom: 0.5px solid white;
 }
 
 .header__input {
-  width: 280px;
+  width: 100%;
   border-style: hidden;
-  border-bottom: 0.5px solid white;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
   color: #FFFFFF;
   background: transparent;
+  outline: none;
+  padding: 4px;
 }
 
-.header__svg {
-  display: flex;
-  margin-left: -15px;
-  margin-bottom: -15px;
+::placeholder {
+  color: var(--primary-text-color);
 }
 
 .header__no-match {
@@ -361,9 +362,6 @@ ul {
 }
 
 @media screen and (min-width: 320px) {
-  .header__input {
-    width: 280px;
-  }
   .header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url("../images/header-mobile-1x.jpg");
     margin-bottom: 20px;
