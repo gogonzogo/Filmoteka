@@ -6,7 +6,7 @@ import { API_KEY, BASE_URL, TRENDING_PATH, MOVIE_SEARCHES, MOVIE_INFO } from './
 export async function fetchTrendingMovies(page) {
     try {
         const response = await axios.get(`${BASE_URL}${TRENDING_PATH}?api_key=${API_KEY}&page=${page}`);
-        console.log(response.data.results)
+        // console.log(response.data.results)
         return response;
         
     } catch (error) {
@@ -31,7 +31,7 @@ export async function getSearchMovies() {
 export async function getMovieInfo(movie_id) {
     try {
         const response = await axios.get(`${BASE_URL}${MOVIE_INFO}${movie_id}?api_key=${API_KEY}&language=en-US`);
-        console.log(response);
+        // console.log(response);
         return response
     } catch (error) {
         console.log("Movie Info API error", error.message);

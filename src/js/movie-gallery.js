@@ -11,17 +11,14 @@ const LOCALSTORAGE_KEY = {};
 // fuction that returns trending movies 
 const showTrendingMovies = async () => {
     const list = await fetchTrendingMovies(1);
-    console.log(list.data.results)
+    // console.log(list.data.results)
     const movie = list.data.results;
-    movie.map((element) => {
-        console.log(element)
-        
-    })
     renderInfo(movie)
 }
 
 
 showTrendingMovies();
+
 
 // function that renders movie info to the dom
 function renderInfo(movies) {
@@ -44,6 +41,8 @@ function renderInfo(movies) {
         movieList.appendChild(card);
     });
 }
+
+
 // const showMovieCard = (movies) => {
 //     const 
 // }

@@ -1,46 +1,65 @@
 @use '../utilities/variables';
 
 
-* {
-    box-sizing: border-box;
-  }
-
 ul {
     list-style: none;
 }
 
 
-
-
 .card-gallery {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 60px;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    padding-left: 71px;
+    padding-right: 71px;
     
-}
+    
 
 
-
-.movie-poster {
-    width: 274px;
-    height: 398px;
-    border-radius: 5px;
-    align-items: center;
-}
-
-.movie_title {
-    font-size: 18px;
-    font-weight: 500;
-    font-family: 'Roboto';
-    font-style: normal;
-    line-height: 30px;
-    color: #000000;
-}
-
-@media (min-width:768px) {
-    .responsive-three-column-grid {
-        display: grid;
-        grid-auto-rows: 1fr;
-        grid-template-columns: 1fr 1fr 1fr;
+    .movie-card {
+        flex: auto;
+        width: 274px;
+        border-radius: 3px;
+        margin: 1rem;
+        align-items: center;
+        
     }
+
+    // .movie_info {
+        
+    // }
+
+    .movie-poster {
+        width: 100%;
+        border-radius: 5px;
+
+    }
+
+    .movie_title {
+        font-size: 18px;
+        font-weight: 500;
+        font-family: 'Roboto';
+        font-style: normal;
+        line-height: 30px;
+        color: $primary-title-color;
+        text-transform: uppercase;
+    }
+
+    .movie_genre {
+        font-family: 'Roboto';
+        font-size: 18px;
+        font-weight: 500;
+        color: $secondary-title-color;
+
+    }
+
+    .movie_release-date {
+        font-size: 18px;
+        font-weight: 500;
+       color: $secondary-title-color;
+      
+    }
+
 }
+
