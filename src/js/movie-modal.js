@@ -1,4 +1,4 @@
-import { getMovieInfo } from './API-requests';
+import { getMovieInfo } from './API-requests.js';
 
 export function showMovieModal(movieData) {
   renderModal(movieData.id);
@@ -19,6 +19,7 @@ async function renderModal(movieID) {
   const movieAbout = document.querySelector('.movie-about-description');
 
   const movie = await getMovieInfo(movieID);
+  console.log(movie);
 
   // round average vote like 7.5975
   function roundVotes(vote) {
@@ -26,6 +27,7 @@ async function renderModal(movieID) {
       return vote.toFixed(2);
     } else return vote;
   }
+  
   //movie info
   movieName.textContent = movie.title;
   moviePoster.src = `https://image.tmdb.org/t/p/original/${movie.poster_path}`;
