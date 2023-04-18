@@ -1,35 +1,31 @@
-import { fetchTrendingMovies, getMovieInfo} from './API-requests.js';
-
-
+import { fetchTrendingMovies, getMovieInfo } from './API-requests.js';
+import { showMovieModal } from './movie-modal.js';
 
 // DOM elements
-const movieList = document.querySelector(".card-gallery");
+const movieList = document.querySelector('.card-gallery');
 const LOCALSTORAGE_KEY = {};
 
-
-
-// fuction that returns trending movies 
+// fuction that returns trending movies
 const showTrendingMovies = async () => {
-    const list = await fetchTrendingMovies(1);
-    console.log(list.data.results)
-    const movie = list.data.results;
-    movie.map((element) => {
-        console.log(element)
-        
-    })
-    renderInfo(movie)
-}
+  const list = await fetchTrendingMovies(1);
+  console.log(list.data.results);
+  const movie = list.data.results;
+  movie.map(element => {
+    console.log(element);
+  });
+  renderInfo(movie);
+};
 
-
-// showTrendingMovies();
+showTrendingMovies();
 
 // function that renders movie info to the dom
 function renderInfo(movies) {
-    return movies.map((movie) => {
-        const card = document.createElement("div.movie-card")
-            card.classList.add('movie-card');
-            card.innerHTML = 
-                `<img src="https://image.tmdb.org/t/p/original/${movie.poster_path}" class="movie-poster"/>
+  return movies.map(movie => {
+    const card = document.createElement('div.movie-card');
+    card.classList.add('movie-card');
+    card.innerHTML = `<img src="https://image.tmdb.org/t/p/original/${
+      movie.poster_path
+    }" class="movie-poster"/>
                 <ul class="movie_info">
                     <li class="movie_title">
                         ${movie.title}
@@ -41,9 +37,10 @@ function renderInfo(movies) {
                         ${new Date(movie.release_date).getFullYear()}
                     </li>
                 </ul>`;
-        movieList.appendChild(card);
-    });
+    movieList.appendChild(card);
+    card.addEventListener('click', () => showMovieModal(movie));
+  });
 }
 // const showMovieCard = (movies) => {
-//     const 
+//     const
 // }
