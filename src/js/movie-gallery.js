@@ -7,15 +7,13 @@ import genreList from './genre-list.js';
 const movieList = document.querySelector(".card-gallery");
 
 
-
-// fuction that returns trending movies 
-const showTrendingMovies = async () => {
+// fuction that returns trending movies
+const showTrendingMovies = async () => { 
     const list = await fetchTrendingMovies(1);
     // console.log(list.data.results)
     const movie = list.data.results;
     renderInfo(movie)
 }
-
 
 showTrendingMovies();
 
@@ -60,11 +58,12 @@ async function renderInfo(movies) {
                         ${new Date(movie.release_date).getFullYear()}
                     </li>
                 </ul>`;
-        movieList.appendChild(card);
-    });
+    movieList.appendChild(card);
+    card.addEventListener('click', () => showMovieModal(movie));
+  });
 }
 
 
 // const showMovieCard = (movies) => {
-//     const 
+//     const
 // }

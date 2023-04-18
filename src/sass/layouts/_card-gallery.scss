@@ -1,18 +1,14 @@
 @use '../utilities/variables';
 
-
 * {
-    box-sizing: border-box;
-  }
-
-
-ul {
-    list-style: none;
+  box-sizing: border-box;
 }
 
 
+ul {
+  list-style: none;
+}
 
-    
     .card-gallery {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -71,16 +67,3 @@ ul {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
