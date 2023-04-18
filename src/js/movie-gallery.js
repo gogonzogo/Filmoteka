@@ -1,10 +1,10 @@
 import { fetchTrendingMovies, getMovieInfo} from './API-requests.js';
+import genreList from './genre-list.js';
 
 
 
 // DOM elements
 const movieList = document.querySelector(".card-gallery");
-const LOCALSTORAGE_KEY = {};
 
 
 
@@ -19,9 +19,31 @@ const showTrendingMovies = async () => {
 
 showTrendingMovies();
 
+//Function to get genre names
+function getGenres(genreList, genreIds) {
+    const arrOfGenresName = genreIds.map(currentId => {
+      const genre = genreList.find(elem => elem.id === currentId);
+  
+      return genre.name;
+    });
+  
+    const str = arrOfGenresName.reduce((acc, genre, index, arr) => {
+      if (arr.length > 2) {
+        acc = `${arr[0]}, ${arr[1]}`;
+      } else {
+        acc = arr.join(', ');
+      }
+      
+      return acc;
+    });
+    return str;
+  }
+  
+
 
 // function that renders movie info to the dom
-function renderInfo(movies) {
+async function renderInfo(movies) {
+    const genre = await getMovieInfo();
     return movies.map((movie) => {
         const card = document.createElement("div.movie-card")
             card.classList.add('movie-card');
@@ -32,7 +54,7 @@ function renderInfo(movies) {
                         ${movie.title}
                     </li>
                     <li class="movie_genre">
-                        ${Object.values(movie.genre_ids)};
+                        ${getGenres(genreList, movie.genre_ids)};
                     </li>
                     <li class="movie_release-date">
                         ${new Date(movie.release_date).getFullYear()}

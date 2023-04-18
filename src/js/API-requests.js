@@ -32,7 +32,10 @@ export async function getMovieInfo(movie_id) {
     try {
         const response = await axios.get(`${BASE_URL}${MOVIE_INFO}${movie_id}?api_key=${API_KEY}&language=en-US`);
         // console.log(response);
-        return response
+        const genres = response.data.genres;
+        const allGenres = genres.map((genre) => genre.name);
+        // console.log(allGenres);
+        return allGenres;
     } catch (error) {
         console.log("Movie Info API error", error.message);
     }
