@@ -25,6 +25,8 @@
   z-index: 6;
 
   .movie-modal__content {
+    max-width: 280px;
+
     position: relative;
     font-size: 12px;
     padding: 48px 20px;
@@ -34,6 +36,7 @@
 
   .modal-movie-poster {
     width: 100%;
+    max-width: 240px;
     border-radius: 5px;
   }
   .movie-name {
@@ -119,8 +122,10 @@
     justify-content: center;
   }
   .movie-modal__container {
-    padding: 75px;
+    padding: 0 75px;
+
     .movie-modal__content {
+      max-width: 620px;
       padding: 42px 30px;
 
       display: grid;
@@ -129,6 +134,19 @@
       .movie-name {
         margin-top: 0;
       }
+    }
+    .modal-movie-poster {
+      max-width: 264px;
+    }
+  }
+}
+@media screen and (min-width: 1024px) {
+  .movie-modal__container {
+    .movie-modal__content {
+      max-width: 900px;
+    }
+    .modal-movie-poster {
+      max-width: 396px;
     }
   }
 }
