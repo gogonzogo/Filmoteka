@@ -1,8 +1,13 @@
 import { getMovieInfo } from './API-requests.js';
+const movieGallery = document.querySelector('.card-gallery');
 
-export function showMovieModal(movieData) {
-  renderModal(movieData.id);
-}
+movieGallery.addEventListener('click', e => {
+  //get movie id
+  const parent = e.target.closest('div');
+  const movieId = parent.getAttribute('data');
+  renderModal(movieId);
+});
+
 async function renderModal(movieID) {
   const modal = document.querySelector('.movie-modal__overlay');
 
@@ -19,7 +24,6 @@ async function renderModal(movieID) {
   const movieAbout = document.querySelector('.movie-about-description');
 
   const movie = await getMovieInfo(movieID);
-  console.log(movie);
 
   // round average vote like 7.5975
   function roundVotes(vote) {
@@ -27,7 +31,7 @@ async function renderModal(movieID) {
       return vote.toFixed(2);
     } else return vote;
   }
-  
+
   //movie info
   movieName.textContent = movie.title;
   moviePoster.src = `https://image.tmdb.org/t/p/original/${movie.poster_path}`;

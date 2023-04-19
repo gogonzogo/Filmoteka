@@ -1,22 +1,16 @@
 import { fetchTrendingMovies, getMovieInfo } from './API-requests.js';
-import { showMovieModal } from './movie-modal.js';
 import genreList from './genre-list.js';
 
-
-
 // DOM elements
-const movieList = document.querySelector(".card-gallery");
+const movieList = document.querySelector('.card-gallery');
 
-
-
-// fuction that returns trending movies 
+// fuction that returns trending movies
 const showTrendingMovies = async () => {
   const list = await fetchTrendingMovies(1);
   // console.log(list.data.results)
   const movie = list.data.results;
-  renderInfo(movie)
-}
-
+  renderInfo(movie);
+};
 
 showTrendingMovies();
 
@@ -40,16 +34,16 @@ function getGenres(genreList, genreIds) {
   return str;
 }
 
-
-
 // function that renders movie info to the dom
 async function renderInfo(movies) {
   // const genre = await getMovieInfo();
-  return movies.map((movie) => {
-    const card = document.createElement("div.movie-card")
+  return movies.map(movie => {
+    const card = document.createElement('div');
+    card.setAttribute('data', movie.id);
     card.classList.add('movie-card');
-    card.innerHTML =
-      `<img src="https://image.tmdb.org/t/p/original/${movie.poster_path}" class="movie-poster"/>
+    card.innerHTML = `<img src="https://image.tmdb.org/t/p/original/${
+      movie.poster_path
+    }" class="movie-poster"/>
                 <ul class="movie_info">
                     <li class="movie_title">
                         ${movie.title}
@@ -62,11 +56,9 @@ async function renderInfo(movies) {
                     </li>
                 </ul>`;
     movieList.appendChild(card);
-    card.addEventListener('click', () => showMovieModal(movie));
   });
 }
 
-
 // const showMovieCard = (movies) => {
-//     const 
+//     const
 // }
