@@ -29,9 +29,9 @@
 }
 
 .header__no-match {
+  margin-top: 22px;
   display: none;
 }
-
 
 .header__no-match-text {
   font-family: 'Roboto';
@@ -40,6 +40,6 @@
   font-size: 14px;
   line-height: 16px;
   display: flex;
-  align-items: center;
-  color: #FF001B;
+  justify-content: center;
+  color: #ff001b;
 }
