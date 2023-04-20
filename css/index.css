@@ -177,6 +177,7 @@ a {
 }
 
 .header__no-match {
+  margin-top: 22px;
   display: none;
 }
 
@@ -187,8 +188,8 @@ a {
   font-size: 14px;
   line-height: 16px;
   display: flex;
-  align-items: center;
-  color: #FF001B;
+  justify-content: center;
+  color: #ff001b;
 }
 
 :root {
@@ -258,25 +259,15 @@ a {
   --secondary-background-color: rgb(247, 247, 247);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-ul {
-  list-style: none;
-}
-
 .card-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   justify-content: center;
   grid-gap: 30px;
-  margin: 60px;
-  margin-left: 71px;
-  margin-right: 71px;
+  margin: 0 20px 40px;
 }
 .card-gallery .movie-poster {
-  width: 274px;
+  width: 280px;
   height: 398px;
   border-radius: 5px;
   align-items: center;
@@ -286,32 +277,48 @@ ul {
   text-align: left;
 }
 .card-gallery .movie_title {
-  font-size: 18px;
+  margin: 10px 0 3px;
+  font-size: 15px;
   font-weight: 500;
   font-family: "Roboto";
   font-style: normal;
-  line-height: 30px;
   color: #000000;
   text-transform: uppercase;
 }
 .card-gallery .movie_genre {
+  margin: 0;
   position: relative;
   display: inline-block;
-  padding-right: 5px;
   font-family: "Roboto";
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
   color: #ff6b08;
 }
 .card-gallery .movie_release-date {
   display: inline-block;
   padding-left: 5px;
-  border-left: 2px solid #ff6b08;
-  font-size: 18px;
+  border-left: 1px solid #ff6b08;
+  font-size: 15px;
   font-weight: 500;
   color: #ff6b08;
 }
 
+@media screen and (min-width: 768px) {
+  .card-gallery {
+    margin: 0 75px 50px;
+  }
+  .card-gallery .movie-poster {
+    width: 294px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .card-gallery {
+    margin: 0 71px 50px;
+  }
+  .card-gallery .movie-poster {
+    width: 274px;
+  }
+}
 :root {
   --primary-text-color: rgb(255, 255, 255);
   --secondary-text-color: rgb(0, 0, 0);
@@ -641,6 +648,10 @@ img {
   fill: #ffffff;
 }
 
+.team__image {
+  height: 200px;
+}
+
 :root {
   --primary-text-color: rgb(255, 255, 255);
   --secondary-text-color: rgb(0, 0, 0);
@@ -678,6 +689,7 @@ img {
   z-index: 6;
 }
 .movie-modal__container .movie-modal__content {
+  max-width: 280px;
   position: relative;
   font-size: 12px;
   padding: 48px 20px;
@@ -686,6 +698,7 @@ img {
 }
 .movie-modal__container .modal-movie-poster {
   width: 100%;
+  max-width: 240px;
   border-radius: 5px;
 }
 .movie-modal__container .movie-name {
@@ -765,9 +778,10 @@ img {
     justify-content: center;
   }
   .movie-modal__container {
-    padding: 75px;
+    padding: 0 75px;
   }
   .movie-modal__container .movie-modal__content {
+    max-width: 620px;
     padding: 42px 30px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -775,5 +789,16 @@ img {
   }
   .movie-modal__container .movie-modal__content .movie-name {
     margin-top: 0;
+  }
+  .movie-modal__container .modal-movie-poster {
+    max-width: 264px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .movie-modal__container .movie-modal__content {
+    max-width: 900px;
+  }
+  .movie-modal__container .modal-movie-poster {
+    max-width: 396px;
   }
 }/*# sourceMappingURL=index.css.map */

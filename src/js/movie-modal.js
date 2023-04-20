@@ -34,7 +34,7 @@ async function renderModal(movieID) {
 
   //movie info
   movieName.textContent = movie.title;
-  moviePoster.src = `https://image.tmdb.org/t/p/original/${movie.poster_path}`;
+  moviePoster.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
 
   //movie details
   movieInfo.innerHTML = `

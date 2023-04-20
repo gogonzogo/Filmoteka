@@ -1,3 +1,7 @@
+const apiParams = require('./js/API-params');
+const apiRequests = require('./js/API-requests');
+const movieGallery = require('./js/movie-gallery');
+
 export const refs = {
   userMovieSearch: document.querySelector('.header__form'),
   userMovieSearchContainer: document.querySelector('.header__form-container'),
