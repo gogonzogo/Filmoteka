@@ -26,18 +26,20 @@ function getGenres(genreList, genreIds) {
     if (arr.length > 2) {
       acc = `${arr[0]}, ${arr[1]}`;
     } else {
-      acc = arr.join(', ');
+      acc = arr.join(', ') + ';';
     }
 
     return acc;
-  });
+  }, '');
   return str;
 }
 
 // function that renders movie info to the dom
-async function renderInfo(movies) {
+export async function renderInfo(movies) {
   // const genre = await getMovieInfo();
-  return movies.map(movie => {
+  movieList.innerHTML = '';
+
+  movies.map(movie => {
     const card = document.createElement('div');
     card.setAttribute('data', movie.id);
     card.classList.add('movie-card');
@@ -49,7 +51,7 @@ async function renderInfo(movies) {
                         ${movie.title}
                     </li>
                     <li class="movie_genre">
-                        ${getGenres(genreList, movie.genre_ids)};
+                        ${getGenres(genreList, movie.genre_ids)}
                     </li>
                     <li class="movie_release-date">
                         ${new Date(movie.release_date).getFullYear()}
