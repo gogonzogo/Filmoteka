@@ -1,19 +1,17 @@
 import { getMovieInfo } from './API-requests.js';
 const movieGallery = document.querySelector('.card-gallery');
+const modal = document.querySelector('.movie-modal__overlay');
 
 movieGallery.addEventListener('click', e => {
   //get movie id
   const parent = e.target.closest('div');
   const movieId = parent.getAttribute('data');
-  renderModal(movieId);
+
+  // show modal after html is rendered. Image is rendering after
+  renderModal(movieId).then(() => modal.classList.toggle('is-hidden'));
 });
 
 async function renderModal(movieID) {
-  const modal = document.querySelector('.movie-modal__overlay');
-
-  //show modal
-  modal.classList.toggle('is-hidden');
-
   //close modal
   const closeBtn = document.querySelector('.close-button');
   closeBtn.addEventListener('click', () => modal.classList.add('is-hidden'));
@@ -34,6 +32,7 @@ async function renderModal(movieID) {
 
   //movie info
   movieName.textContent = movie.title;
+  moviePoster.src = '';
   moviePoster.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
 
   //movie details
