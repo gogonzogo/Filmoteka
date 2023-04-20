@@ -5,7 +5,7 @@ import genreList from './genre-list.js';
 const movieList = document.querySelector('.card-gallery');
 
 // fuction that returns trending movies
-const showTrendingMovies = async () => {
+export const showTrendingMovies = async () => {
   const list = await fetchTrendingMovies(1);
   // console.log(list.data.results)
   const movie = list.data.results;
