@@ -4,9 +4,12 @@ import genreList from './genre-list.js';
 // DOM elements
 const movieList = document.querySelector('.card-gallery');
 
+// pagination variable
+let pageNumber = 1;
+
 // fuction that returns trending movies
 const showTrendingMovies = async () => {
-  const list = await fetchTrendingMovies(1);
+  const list = await fetchTrendingMovies(pageNumber);
   // console.log(list.data.results)
   const movie = list.data.results;
   renderInfo(movie);
@@ -22,20 +25,19 @@ function getGenres(genreList, genreIds) {
     return genre.name;
   });
 
-  const str = arrOfGenresName.reduce((acc, genre, index, arr) => {
-    if (arr.length > 2) {
-      acc = `${arr[0]}, ${arr[1]}`;
-    } else {
-      acc = arr.join(', ');
+  const str = arrOfGenresName.filter((val, index) => {
+    // console.log(index)
+    if(index < 2) {
+      // console.log(val)
+      return val 
     }
-
-    return acc;
-  });
-  return str;
+  
+  })
+  return str.join(", ");
 }
 
 // function that renders movie info to the dom
-async function renderInfo(movies) {
+export async function renderInfo(movies) {
   // const genre = await getMovieInfo();
   return movies.map(movie => {
     const card = document.createElement('div');

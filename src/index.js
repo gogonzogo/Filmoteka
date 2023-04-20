@@ -1,3 +1,10 @@
+// module imports
+import './js/API-params';
+import './js/API-requests';
+import './js/pagination';
+import './js/movie-gallery';
+
+
 export const refs = {
   userMovieSearch: document.querySelector('.header__form'),
   userMovieSearchContainer: document.querySelector('.header__form-container'),

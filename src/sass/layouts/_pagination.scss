@@ -1,0 +1,26 @@
+@use '../utilities/variables';
+
+.pagination-div {
+    margin: 0 325px 60px 325px;
+    display:flex; 
+    flex-direction: row;
+    justify-content: center;
+
+    .previousPageButton, 
+    .nextPageButton {
+        width: 40px;
+        height: 40px;
+        background-color: $pagination-button-color;
+        border-radius: 5px;
+        border-style: none;
+    }
+    
+    .page-numbers {
+        display: flex;
+        flex-direction: column;
+        color: black;
+        margin: 10px;
+        align-items: center;
+        font-size: 15px;
+    }
+}
