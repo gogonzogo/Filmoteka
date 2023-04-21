@@ -1,7 +1,6 @@
-@use '../utilities/variables';
 
-.card-gallery{
-  display: grid;
+.mylibrary-gallery {
+  display: none;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   justify-content: center;
   grid-gap: 30px;
@@ -51,8 +50,8 @@
   }
 }
 
-.no-storage{
-  color:black;
+.no-storage {
+  color: black;
   text-align: center;
 }
 

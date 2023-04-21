@@ -1,3 +1,7 @@
+const apiParams = require('./js/API-params');
+const apiRequests = require('./js/API-requests');
+const movieGallery = require('./js/movie-gallery');
+
 export const refs = {
   userMovieSearch: document.querySelector('.header__form'),
   userMovieSearchContainer: document.querySelector('.header__form-container'),
@@ -8,6 +12,8 @@ export const refs = {
   watchedBtn: document.querySelector('.library__button-watched'),
   logoLink: document.querySelector('.logo-link'),
   goitLink: document.querySelector('.footer-link'),
+  cardsDiv: document.querySelector('.card-gallery'),
+  mylibDiv: document.querySelector('.mylibrary-gallery'),
 }
 
 function onHomeLinkClick(e) {
@@ -21,6 +27,11 @@ function onHomeLinkClick(e) {
   document.body.classList.remove('my-library');
   refs.headerBtnContainer.style.display = 'none';
   refs.userMovieSearchContainer.style.display = 'flex';
+  refs.cardsDiv.style.removeProperty('display');
+  refs.cardsDiv.style.display ='grid';
+  refs.mylibDiv.style.removeProperty('display');
+  refs.mylibDiv.style.display ='none';
+
   // fetchMovies(); //FETCH AND RENDER TRENDING MOVIES
 }
 
@@ -34,6 +45,10 @@ function onLibraryLinkClick(e) {
   refs.homeLink.classList.remove('active');
   refs.userMovieSearchContainer.style.display = 'none';
   refs.headerBtnContainer.style.display = 'flex';
+  refs.cardsDiv.style.removeProperty('display');
+  refs.cardsDiv.style.display ='none';
+  refs.mylibDiv.style.removeProperty('display');
+  refs.mylibDiv.style.display ='grid';
   document.body.classList.add('my-library');
 
 };
