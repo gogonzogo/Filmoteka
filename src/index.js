@@ -79,7 +79,7 @@ export function createPagination(totalPages, page) {
       paginationItem += ` 
       <li class="pagination__item previous-page page-control">
         <svg class="previous-icon pagination-icon" width="16" height="16">
-          <use href="/images/sprite.svg#icon-arrow-right"></use>
+          <use href="./images/sprite.svg#icon-arrow-right"></use>
         </svg>
       </li>`;
     }
@@ -127,7 +127,7 @@ export function createPagination(totalPages, page) {
       paginationItem += `
       <li class="pagination__item next-page page-control">
         <svg class="next-icon pagination-icon" width="16" height="16">
-          <use href="./images/sprite.svg#icon-arrow-right"></use>
+          <use href="./images/sprite.svg#icon-arrow-left"></use>
         </svg>
       </li>`;
     }
@@ -142,7 +142,7 @@ export function createPagination(totalPages, page) {
       paginationItem += ` 
       <li class="pagination__item previous-page page-control">
         <svg class="previous-icon pagination-icon" width="16" height="16">
-          <use href="/images/sprite.svg#icon-arrow-right"></use>
+          <use href="./images/sprite.svg#icon-arrow-right"></use>
         </svg>
       </li>`;
     }
@@ -186,7 +186,7 @@ export function createPagination(totalPages, page) {
       paginationItem += `
       <li class="pagination__item next-page page-control">
         <svg class="next-icon pagination-icon" width="16" height="16">
-          <use href="./images/sprite.svg#icon-arrow-right"></use>
+          <use href="./images/sprite.svg#icon-arrow-left"></use>
         </svg>
       </li>`;
     }
