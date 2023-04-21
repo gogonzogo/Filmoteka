@@ -15,7 +15,6 @@ body {
 
 }
 
-
 ul {
   list-style: none;
   margin-top: 0;
@@ -29,6 +28,6 @@ a {
 
 img {
   max-width: 100%;
-  aspect-ratio: 3/2;
-  object-fit: contain;
+  aspect-ratio: auto;
+  object-fit: cover;
 }
