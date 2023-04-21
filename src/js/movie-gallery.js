@@ -69,7 +69,7 @@ export async function renderInfo(movies) {
     card.setAttribute('data', movie.id);
     card.classList.add('movie-card');
     card.innerHTML = `<img src="${MOVIE__POSTERS__URL}${movie.poster_path
-      }" class="movie-poster" ${movieGalleryPosterDimension}/>
+      }" class="movie-poster" ${movieGalleryPosterDimension} alt="${movie.title}"/>
                 <ul class="movie_info">
                     <li class="movie_title">
                         ${movie.title}
