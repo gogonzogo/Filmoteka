@@ -14,7 +14,6 @@ let currentPage;
 // fuction that returns trending movies
 export const showTrendingMovies = async (page) => {
   const list = await fetchTrendingMovies(page);
-  console.log(list.data)
   totalPages = list.data.total_pages;
   currentPage = list.data.page;
   createPagination(totalPages, currentPage);
