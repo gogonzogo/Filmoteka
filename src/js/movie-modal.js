@@ -1,5 +1,5 @@
 import { getMovieInfo } from './API-requests.js';
-import { MOVIE__POSTERS__URL, updateMovieModalPosterDimension, updateMoviePosterUrl } from './movie-poster-data.js';
+import { MOVIE__POSTERS__URL, updateMovieModalPosterDimension, updateMoviePosterUrl, movieModalPosterWidth, movieModalPosterHeight } from './movie-poster-data.js';
 
 class Queue {
   constructor(id, title, genres, release_date, poster_path) {
@@ -64,10 +64,15 @@ async function renderModal(movieID) {
   updateMovieModalPosterDimension();
   updateMoviePosterUrl();
 
+  console.log(movieModalPosterWidth);
+  console.log(MOVIE__POSTERS__URL);
   //movie info
   movieName.textContent = movie.title;
   moviePoster.src = '';
   moviePoster.src = `${MOVIE__POSTERS__URL}${movie.poster_path}`;
+  moviePoster.alt = `${movie.title}`;
+  moviePoster.width = `${movieModalPosterWidth}`;
+  moviePoster.height = `${movieModalPosterHeight}`;
 
   //movie details
   movieInfo.innerHTML = `

@@ -2,7 +2,6 @@ const apiParams = require('./js/API-params');
 const apiRequests = require('./js/API-requests');
 const movieGallery = require('./js/movie-gallery');
 
-
 const refs = {
   userMovieSearch: document.querySelector('.header__form'),
   userMovieSearchContainer: document.querySelector('.header__form-container'),
@@ -196,11 +195,6 @@ export function createPagination(totalPages, page) {
 };
 
 refs.paginationContainer.addEventListener('click', movieGallery.onPaginationItemClick);
-
-
-
-
-
 refs.libraryLink.addEventListener('click', onLibraryLinkClick);
 refs.homeLink.addEventListener('click', onHomeLinkClick);
 refs.queueBtn.addEventListener('click', onQueueBtnClick);
