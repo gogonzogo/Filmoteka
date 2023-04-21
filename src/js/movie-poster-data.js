@@ -1,5 +1,6 @@
 
-export let movieModalPosterDimension;
+export let movieModalPosterWidth;
+export let movieModalPosterHeight;
 export let movieGalleryPosterDimension;
 export let MOVIE__POSTERS__URL;
 
@@ -13,9 +14,11 @@ export function updateMoviePosterUrl() {
 
 export function updateMovieModalPosterDimension() {
   if (window.innerWidth < 1024) {
-    movieModalPosterDimension = `width="300" height="400"`;
+    movieModalPosterWidth = 300;
+    movieModalPosterHeight = 400;
   } else {
-    movieModalPosterDimension = `width="396" height="477"`;
+    movieModalPosterWidth = 396;
+    movieModalPosterHeight = 477;
   };
 };
 
