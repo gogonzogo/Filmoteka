@@ -1,5 +1,5 @@
 import { getMovieInfo } from './API-requests.js';
-import { MOVIE__POSTERS__URL, updateMovieModalPosterDimension, updateMoviePosterUrl } from './movie-poster-data.js';
+import { MOVIE__POSTERS__URL, updateMovieModalPosterDimension, updateMoviePosterUrl, movieModalPosterWidth, movieModalPosterHeight } from './movie-poster-data.js';
 
 class Queue {
   constructor(id, title, genres, release_date, poster_path) {
@@ -68,6 +68,9 @@ async function renderModal(movieID) {
   movieName.textContent = movie.title;
   moviePoster.src = '';
   moviePoster.src = `${MOVIE__POSTERS__URL}${movie.poster_path}`;
+  moviePoster.alt = `${movie.title}`;
+  moviePoster.width = `${ movieModalPosterWidth }`;
+  moviePoster.height = `${ movieModalPosterHeight }`;
 
   //movie details
   movieInfo.innerHTML = `
@@ -84,19 +87,19 @@ async function renderModal(movieID) {
   movieAbout.textContent = movie.overview;
 
   mylibtitle = movie.title
-mylibgenres = movie.genres.map(gen => ' ' + gen.name)
-mylibrelease_date = movie.release_date
-mylibposter_path = movie.poster_path
- 
+  mylibgenres = movie.genres.map(gen => ' ' + gen.name)
+  mylibrelease_date = movie.release_date
+  mylibposter_path = movie.poster_path
+
   const watchSet = (localStorage.getItem('watch') !== null);
   if (watchSet) {
     const getWatch = localStorage.getItem('watch')
     watchArray = JSON.parse(getWatch)
-  
-  }else {
+
+  } else {
     watchArray = []
   }
-    const queueSet = (localStorage.getItem('queue') !== null);
+  const queueSet = (localStorage.getItem('queue') !== null);
 
   if (queueSet) {
     const getqueue = localStorage.getItem('queue')
@@ -104,7 +107,7 @@ mylibposter_path = movie.poster_path
   } else {
     queueArray = []
   }
-  const watchresult = watchArray.findIndex(item=> item.id === mylibID )
+  const watchresult = watchArray.findIndex(item => item.id === mylibID)
   if (watchresult !== -1) {
     movieWatched.innerText = "REMOVE FROM WATCHED"
     checkclass = movieWatched.matches('.add-to-queue');
@@ -119,22 +122,22 @@ mylibposter_path = movie.poster_path
     if (checkclass) {
       movieWatched.classList.toggle("add-to-watched");
       movieWatched.classList.toggle("add-to-queue");
-      
-    }
-  } ;
 
-  const queueresult = queueArray.findIndex(item=> item.id === mylibID )
- 
+    }
+  };
+
+  const queueresult = queueArray.findIndex(item => item.id === mylibID)
+
   if (queueresult !== -1) {
-    movieQueued.innerText = "REMOVE FROM QUEUE" 
+    movieQueued.innerText = "REMOVE FROM QUEUE"
     checkclass = movieQueued.matches('.add-to-queue');
     if (checkclass) {
       movieQueued.classList.toggle("add-to-queue");
       movieQueued.classList.toggle("add-to-watched");
     }
-   } else {
+  } else {
     movieQueued.innerText = "ADD TO QUEUE"
-     checkclass = movieQueued.matches('.add-to-watched');
+    checkclass = movieQueued.matches('.add-to-watched');
 
     if (checkclass) {
       movieQueued.classList.toggle("add-to-queue");
@@ -148,19 +151,19 @@ mylibposter_path = movie.poster_path
 
 function queueProcess() {
   const queueSet = (localStorage.getItem('queue') !== null);
-   if (queueSet) {
+  if (queueSet) {
     const getqueue = localStorage.getItem('queue')
-   queueArray = JSON.parse(getqueue)
-     
+    queueArray = JSON.parse(getqueue)
 
-   } else {
-     queueArray = []
-   }
 
-  checkArrary = queueArray.findIndex(item=> item.id === mylibID )
+  } else {
+    queueArray = []
+  }
+
+  checkArrary = queueArray.findIndex(item => item.id === mylibID)
   if (checkArrary === -1) {
-   const queue = new Queue(mylibID, mylibtitle, mylibgenres, mylibrelease_date, mylibposter_path)
-queueArray.push(queue)
+    const queue = new Queue(mylibID, mylibtitle, mylibgenres, mylibrelease_date, mylibposter_path)
+    queueArray.push(queue)
     localStorage.setItem('queue', JSON.stringify(queueArray))
     movieQueued.innerText = "REMOVE FROM QUEUE"
     checkclass = movieQueued.matches('.add-to-queue');
@@ -168,56 +171,56 @@ queueArray.push(queue)
       movieQueued.classList.toggle("add-to-queue");
       movieQueued.classList.toggle("add-to-watched");
     }
-  
+
   } else {
-     queueArray.splice(checkArrary, 1)
-        localStorage.setItem('queue', JSON.stringify(queueArray))
+    queueArray.splice(checkArrary, 1)
+    localStorage.setItem('queue', JSON.stringify(queueArray))
     movieQueued.innerText = "ADD TO QUEUE"
-     checkclass = movieQueued.matches('.add-to-watched');
+    checkclass = movieQueued.matches('.add-to-watched');
 
     if (checkclass) {
       movieQueued.classList.toggle("add-to-queue");
       movieQueued.classList.toggle("add-to-watched");
     }
-      }
-    }
-  
+  }
+}
+
 
 function watchedProcess() {
-     const queueSet = (localStorage.getItem('watch') !== null);
-   if (queueSet) {
+  const queueSet = (localStorage.getItem('watch') !== null);
+  if (queueSet) {
     const getwatch = localStorage.getItem('watch')
-   watchArray = JSON.parse(getwatch)
-     
+    watchArray = JSON.parse(getwatch)
 
-   } else {
-     watchArray = []
-   }
-console.log(watchArray)
+
+  } else {
+    watchArray = []
+  }
+  console.log(watchArray)
   checkArrary = watchArray.findIndex(item => item.id === mylibID)
   console.log(checkArrary)
   if (checkArrary === -1) {
     const queue = new Queue(mylibID, mylibtitle, mylibgenres, mylibrelease_date, mylibposter_path)
     console.log
-watchArray.push(queue)
+    watchArray.push(queue)
     localStorage.setItem('watch', JSON.stringify(watchArray))
     movieWatched.innerText = "REMOVE FROM WATCHED"
-checkclass = movieWatched.matches('.add-to-queue');
+    checkclass = movieWatched.matches('.add-to-queue');
     if (checkclass) {
       movieWatched.classList.toggle("add-to-queue");
       movieWatched.classList.toggle("add-to-watched");
     }
-    
-  
+
+
   } else {
-     watchArray.splice(checkArrary, 1)
-        localStorage.setItem('watch', JSON.stringify(watchArray))
+    watchArray.splice(checkArrary, 1)
+    localStorage.setItem('watch', JSON.stringify(watchArray))
     movieWatched.innerText = "ADD TO WATCHED"
-     checkclass = movieWatched.matches('.add-to-watched');
+    checkclass = movieWatched.matches('.add-to-watched');
 
     if (checkclass) {
       movieWatched.classList.toggle("add-to-queue");
       movieWatched.classList.toggle("add-to-watched");
     }
-      }
-    }
+  }
+}
