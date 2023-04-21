@@ -84,7 +84,3 @@ export async function renderInfo(movies) {
     movieList.appendChild(card);
   });
 }
-
-// const showMovieCard = (movies) => {
-//     const
-// }
