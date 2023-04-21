@@ -1,4 +1,5 @@
 import { getMovieInfo } from './API-requests.js';
+import { MOVIE__POSTERS__URL, updateMovieModalPosterDimension, updateMoviePosterUrl } from './movie-poster-data.js';
 
 class Queue {
   constructor(id, title, genres, release_date, poster_path) {
@@ -23,24 +24,24 @@ movieGallery.addEventListener('click', e => {
   const parent = e.target.closest('div');
   const movieId = parent.getAttribute('data');
   mylibID = movieId;
-  renderModal(movieId);
+
+  // show modal after html is rendered. Image is rendering after
+  renderModal(movieId).then(() => modal.classList.toggle('is-hidden'));
 });
+
+const modal = document.querySelector('.movie-modal__overlay');
+
 
 let watchArray = [];
 let queueArray = [];
 let currentMovie;
 const movieWatched = document.querySelector('#watchedButton');
 const movieQueued = document.querySelector('#queuedButton');
-movieWatched.addEventListener('click', watchedProcess)  
-movieQueued.addEventListener('click', queueProcess)
+movieWatched.addEventListener('click', watchedProcess);
+movieQueued.addEventListener('click', queueProcess);
 
 
 async function renderModal(movieID) {
-  const modal = document.querySelector('.movie-modal__overlay');
-
-  //show modal
-  modal.classList.toggle('is-hidden');
-
   //close modal
   const closeBtn = document.querySelector('.close-button');
   closeBtn.addEventListener('click', () => modal.classList.add('is-hidden'));
@@ -59,9 +60,14 @@ async function renderModal(movieID) {
     } else return vote;
   }
 
+  // MOVIE IMAGE SPECS
+  updateMovieModalPosterDimension();
+  updateMoviePosterUrl();
+
   //movie info
   movieName.textContent = movie.title;
-  moviePoster.src = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
+  moviePoster.src = '';
+  moviePoster.src = `${MOVIE__POSTERS__URL}${movie.poster_path}`;
 
   //movie details
   movieInfo.innerHTML = `

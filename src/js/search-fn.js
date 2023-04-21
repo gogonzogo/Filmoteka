@@ -1,6 +1,6 @@
 import debounce from 'lodash.debounce';
 import { getSearchMovies } from './API-requests.js';
-import { renderInfo } from './movie-gallery';
+import { renderInfo, showTrendingMovies } from './movie-gallery';
 
 const searchInput = document.querySelector('.header__input');
 const failedSearchText = document.querySelector('.header__no-match');
@@ -19,8 +19,9 @@ searchInput.addEventListener(
     if (searchResults.results.length !== 0) {
       failedSearchText.style.display = 'none';
       renderInfo(searchResults.results);
-    } else if (!e.target.value) {
+    } else if (e.target.value === '') {
       failedSearchText.style.display = 'none';
+      showTrendingMovies();
     } else failedSearchText.style.display = 'block';
   }, 500)
 );
