@@ -7,13 +7,11 @@ import {
   MOVIE_INFO,
 } from './API-params.js';
 import { createPagination } from '../index.js';
-import { userInput } from './search-fn.js';
 
 // PAGINATION VARIBALES
 let page = 1;
 let totalPages;
 let currentPage;
-userInput;
 
 // HTTP Request for trending films - per day
 export async function fetchTrendingMovies(page) {
