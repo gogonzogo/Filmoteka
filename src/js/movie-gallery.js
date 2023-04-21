@@ -1,18 +1,43 @@
 import { fetchTrendingMovies, getMovieInfo } from './API-requests.js';
 import genreList from './genre-list.js';
+import { createPagination } from '../index.js';
+import { movieGalleryPosterDimension, MOVIE__POSTERS__URL, updateMovieGalleryPosterDimension, updateMoviePosterUrl } from './movie-poster-data.js';
 
 // DOM elements
 const movieList = document.querySelector('.card-gallery');
 
+// PAGINATION VARIABLES
+let page = 1;
+let totalPages;
+let currentPage;
+
 // fuction that returns trending movies
-const showTrendingMovies = async () => {
-  const list = await fetchTrendingMovies(1);
-  // console.log(list.data.results)
+export const showTrendingMovies = async (page) => {
+  const list = await fetchTrendingMovies(page);
+  console.log(list.data)
+  totalPages = list.data.total_pages;
+  currentPage = list.data.page;
+  createPagination(totalPages, currentPage);
   const movie = list.data.results;
   renderInfo(movie);
 };
 
-showTrendingMovies();
+export function onPaginationItemClick(e) {
+  if (!e.target.closest('LI').classList.contains('pagination__item')) {
+    return;
+  } if (e.target.closest('LI').classList.contains('next-page')) {
+    page++;
+    showTrendingMovies(page);
+  } if (e.target.closest('LI').classList.contains('previous-page')) {
+    page--;
+    showTrendingMovies(page);
+  } if (e.target.closest('LI').classList.contains('page-number')) {
+    page = Number(e.target.textContent);
+    showTrendingMovies(page);
+  };
+};
+
+showTrendingMovies(page);
 
 //Function to get genre names
 function getGenres(genreList, genreIds) {
@@ -36,16 +61,16 @@ function getGenres(genreList, genreIds) {
 
 // function that renders movie info to the dom
 export async function renderInfo(movies) {
-  // const genre = await getMovieInfo();
+  updateMoviePosterUrl();
+  updateMovieGalleryPosterDimension();
   movieList.innerHTML = '';
 
   movies.map(movie => {
     const card = document.createElement('div');
     card.setAttribute('data', movie.id);
     card.classList.add('movie-card');
-    card.innerHTML = `<img src="https://image.tmdb.org/t/p/w500/${
-      movie.poster_path
-    }" class="movie-poster" width="500px"/>
+    card.innerHTML = `<img src="${MOVIE__POSTERS__URL}${movie.poster_path
+      }" class="movie-poster" ${movieGalleryPosterDimension}/>
                 <ul class="movie_info">
                     <li class="movie_title">
                         ${movie.title}

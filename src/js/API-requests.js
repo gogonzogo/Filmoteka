@@ -6,6 +6,14 @@ import {
   MOVIE_SEARCHES,
   MOVIE_INFO,
 } from './API-params.js';
+import { createPagination } from '../index.js';
+import { userInput } from './search-fn.js';
+
+// PAGINATION VARIBALES
+let page = 1;
+let totalPages;
+let currentPage;
+userInput;
 
 // HTTP Request for trending films - per day
 export async function fetchTrendingMovies(page) {
@@ -13,7 +21,6 @@ export async function fetchTrendingMovies(page) {
     const response = await axios.get(
       `${BASE_URL}${TRENDING_PATH}?api_key=${API_KEY}&page=${page}`
     );
-    // console.log(response.data.results)
     return response;
   } catch (error) {
     console.log('Trending Movies API error', error.message);
@@ -26,7 +33,9 @@ export async function getSearchMovies(movie, page) {
     const response = await axios.get(
       `${BASE_URL}${MOVIE_SEARCHES}?api_key=${API_KEY}&query=${movie}&page=${page}`
     );
-    // console.log(response.data.results);
+    page = response.data.page;
+    totalPages = response.data.total_pages;
+    createPagination(totalPages, page);
     return response.data;
   } catch (error) {
     console.log('Search Movies API error', error.message);
@@ -39,26 +48,9 @@ export async function getMovieInfo(movie_id) {
     const response = await axios.get(
       `${BASE_URL}${MOVIE_INFO}${movie_id}?api_key=${API_KEY}&language=en-US`
     );
-    // console.log(response);
     return response.data;
   } catch (error) {
     console.log('Movie Info API error', error.message);
   }
 }
 
-// UPDATED FUNCTION TO RETURN ONLY GENRES EFFECTING MOVIE MODAL/ COLLABORATION NEEDED
-/* export async function getMovieInfo(movie_id) {
-    try {
-        const response = await axios.get(`${BASE_URL}${MOVIE_INFO}${movie_id}?api_key=${API_KEY}&language=en-US`);
-        // console.log(response);
-        const genres = response.data.genres;
-        const allGenres = genres.map((genre) => genre.name);
-        // console.log(allGenres);
-        return allGenres;
-    } catch (error) {
-        console.log("Movie Info API error", error.message);
-    }
-} */
-
-// fetchTrendingMovies();
-// getMovieInfo(700391);
