@@ -28,7 +28,7 @@
   content: "";
   width: 100%;
   height: 3px;
-  background: variables.$secondary-title-color;
+  background: var(--accent-color);
   top: 15px;
   left: 0px;
 
