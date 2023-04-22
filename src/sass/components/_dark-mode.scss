@@ -33,16 +33,37 @@
 }
 
 .dark-mode {
-  background-color: #000000;
+  background-color: #323232;
   color: #fff;
 
-  .movie_title {
-    color: #fff;
+  .card-gallery {
+
+    .movie_title {
+      color: #fff;
+    }
+
+  }
+
+  .team {
+    background-color: #313131;
+  }
+
+  .team__item {
+    background: #ae4601;
+  }
+
+  .team__text {
+    color: #ffffff;
   }
 
   .movie-modal__container {
+
+    .movie-info-block .movie-info {
+      color: #ff8100;
+    }
+
     .movie-modal__content {
-      background-color: #000000;
+      background-color: #323232;
       color: #fff;
     }
 
@@ -66,4 +87,6 @@
   .page-dots {
     color: #fff;
   }
+
+
 }
