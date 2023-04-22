@@ -149,7 +149,7 @@ function renderInfo() {
     card.innerHTML = `<h3>No movies saved in ${nomovie}</h3>`
     movieList.appendChild(card);
   }
-  hideLoadingAnimationWithDelay(1000);
+  hideLoadingAnimationWithDelay(500);
 }
 
 renderInfo()

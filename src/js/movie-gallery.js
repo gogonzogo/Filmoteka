@@ -117,5 +117,5 @@ export async function renderInfo(movies) {
                 </ul>`;
     movieList.appendChild(card);
   });
-  hideLoadingAnimationWithDelay(1000);
+  hideLoadingAnimationWithDelay(500);
 }
