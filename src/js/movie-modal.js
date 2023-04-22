@@ -26,6 +26,10 @@ movieGallery.addEventListener('click', e => {
   const parent = e.target.closest('div');
   const movieId = parent.getAttribute('data');
   mylibID = movieId;
+  // show modal after html is rendered. Image is rendering after
+  renderModal(movieId).then(() => modal.classList.toggle('is-hidden'));
+});
+
 
 myLibaryGallery.addEventListener('click', e => {
   //get movie id
@@ -35,12 +39,8 @@ myLibaryGallery.addEventListener('click', e => {
   const movieId = parent.getAttribute('data');
   mylibID = movieId;
 //  renderModal(movieId);
-});
+    renderModal(movieId).then(() => modal.classList.toggle('is-hidden'));
 
-
-
-  // show modal after html is rendered. Image is rendering after
-  renderModal(movieId).then(() => modal.classList.toggle('is-hidden'));
 });
 
 const modal = document.querySelector('.movie-modal__overlay');

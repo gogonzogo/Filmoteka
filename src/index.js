@@ -17,6 +17,7 @@ const refs = {
   paginationList: document.querySelector('.pagination__list'),
  cardsDiv: document.querySelector('.card-gallery'),
   mylibDiv: document.querySelector('.mylibrary-gallery'),
+  pagePagination: document.querySelector('.pagination__container'),
 
 };
 
@@ -36,7 +37,9 @@ function onHomeLinkClick(e) {
   refs.cardsDiv.style.removeProperty('display');
   refs.cardsDiv.style.display ='grid';
   refs.mylibDiv.style.removeProperty('display');
-  refs.mylibDiv.style.display ='none';
+  refs.mylibDiv.style.display = 'none';
+  refs.pagePagination.style.removeProperty('display');
+  
   // fetchMovies(); //FETCH AND RENDER TRENDING MOVIES
 }
 
@@ -54,7 +57,10 @@ function onLibraryLinkClick(e) {
   refs.cardsDiv.style.display ='none';
   refs.mylibDiv.style.removeProperty('display');
   refs.mylibDiv.style.display ='grid';
+  refs.pagePagination.style.display = 'none';
   document.body.classList.add('my-library');
+    
+
 
 };
 
