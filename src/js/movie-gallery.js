@@ -83,17 +83,21 @@ function getGenres(genreList, genreIds) {
 export async function renderInfo(movies) {
   updateMoviePosterUrl();
   updateMovieGalleryPosterDimension();
+
+  function moviePosterFn(movie) {
+    if (movie.poster_path) {
+      return `<img src="https://image.tmdb.org/t/p/w300${movie.poster_path}" class="movie-poster" ${movieGalleryPosterDimension} alt="${movie.title}"/>`;
+    } else
+      return `<img src='https://skydomepictures.com/wp-content/uploads/2018/08/movie-poster-coming-soon-2.png'class="movie-poster" ${movieGalleryPosterDimension}/>`;
+  }
+
   movieList.innerHTML = '';
 
   movies.map(movie => {
     const card = document.createElement('div');
     card.setAttribute('data', movie.id);
     card.classList.add('movie-card');
-    card.innerHTML = `<img src="https://image.tmdb.org/t/p/w300${
-      movie.poster_path
-    }" class="movie-poster" ${movieGalleryPosterDimension} alt="${
-      movie.title
-    }"/>
+    card.innerHTML = `${moviePosterFn(movie)}
                 <ul class="movie_info">
                     <li class="movie_title">
                         ${movie.title}
