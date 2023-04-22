@@ -1,5 +1,9 @@
 @use '../utilities/variables';
 
+.darkMode-button {
+  display: flex;
+}
+
 .dark-mode-switch {
   position: relative;
   display: inline-block;

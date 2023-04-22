@@ -1,13 +1,13 @@
 @use '../utilities/variables';
 
-.header__logo {
+.header__logo-text {
   display: none;
   font-family: 'Roboto';
   font-weight: 500;
   font-size: 30px;
   line-height: 35px;
   color: variables.$primary-text-color;
-  margin-right: 303px;
+  margin-right: 190px;
   margin-left: 10px;
 }
 
@@ -17,6 +17,11 @@
 }
 
 .logos {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
   display: flex;
   align-items: center;
 }
