@@ -17,7 +17,7 @@ class Queue {
   }
 }
 
-const movieGallery = document.querySelector('.card-gallery'); //<<<<<<< my-library-update
+const movieGallery = document.querySelector('.card-gallery'); // my-library-update
 const myLibaryGallery = document.querySelector('.mylibrary-gallery');
 console.log(myLibaryGallery)
 let mylibID = ""
