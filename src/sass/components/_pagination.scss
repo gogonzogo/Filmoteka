@@ -10,10 +10,7 @@
   display: flex;
   align-items: center;
   padding: 12px;
-}
-
-.pagination-icon {
-  fill: var(--secondary-text-color);
+  cursor: pointer;
 }
 
 .previous-page,
@@ -31,7 +28,8 @@
 
   &:hover,
   &:focus {
-    color: var(--primary-text-color);
+    color: var(--primary-text-color); 
+    fill: var(--primary-text-color);
     background-color: var(--accent-color);
     border: none;
     border-radius: 5px;

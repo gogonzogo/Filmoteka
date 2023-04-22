@@ -13,7 +13,7 @@ body {
   background: variables.$primary-text-color;
   color: variables.$primary-text-color;
   margin: 0;
-
+  cursor: default;
 }
 
 ul {
@@ -32,3 +32,8 @@ img {
   aspect-ratio: auto;
   object-fit: cover;
 }
+
+button {
+  cursor: pointer;
+}
+
