@@ -72,9 +72,8 @@ function getGenres(genreList, genreIds) {
     if (arr.length > 2) {
       acc = `${arr[0]}, ${arr[1]}, Other`;
     } else {
-      acc = arr.join(', ') + ';';
+      acc = arr.join(', ');
     }
-
     return acc;
   }, '');
   return str;
