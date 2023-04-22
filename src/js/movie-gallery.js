@@ -1,4 +1,8 @@
-import { fetchTrendingMovies, getMovieInfo } from './API-requests.js';
+import {
+  fetchTrendingMovies,
+  getMovieInfo,
+  getSearchMovies,
+} from './API-requests.js';
 import genreList from './genre-list.js';
 import { createPagination } from '../index.js';
 import {
@@ -7,6 +11,8 @@ import {
   updateMovieGalleryPosterDimension,
   updateMoviePosterUrl,
 } from './movie-poster-data.js';
+
+import { search, userInput } from './search-fn.js';
 
 // DOM elements
 const movieList = document.querySelector('.card-gallery');
@@ -27,20 +33,28 @@ export const showTrendingMovies = async page => {
 };
 
 export function onPaginationItemClick(e) {
+  function renderMore(page) {
+    if (!userInput) {
+      showTrendingMovies(page);
+    } else {
+      search(page);
+    }
+  }
+
   if (!e.target.closest('LI').classList.contains('pagination__item')) {
     return;
   }
   if (e.target.closest('LI').classList.contains('next-page')) {
     page++;
-    showTrendingMovies(page);
+    renderMore(page);
   }
   if (e.target.closest('LI').classList.contains('previous-page')) {
     page--;
-    showTrendingMovies(page);
+    renderMore(page);
   }
   if (e.target.closest('LI').classList.contains('page-number')) {
     page = Number(e.target.textContent);
-    showTrendingMovies(page);
+    renderMore(page);
   }
 }
 
