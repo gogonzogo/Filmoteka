@@ -17,12 +17,15 @@ class Queue {
   }
 }
 
-const movieGallery = document.querySelector('.card-gallery');
-let mylibID = '';
-let mylibtitle = '';
-let mylibgenres = '';
-let mylibrelease_date = '';
-let mylibposter_path = '';
+const movieGallery = document.querySelector('.card-gallery');<<<<<<< my-library-update
+const myLibaryGallery = document.querySelector('.mylibrary-gallery');
+console.log(myLibaryGallery)
+let mylibID = ""
+let mylibtitle = ""
+let mylibgenres = ""
+let mylibrelease_date = ""
+let mylibposter_path = ""
+
 let checkArrary = -1;
 let checkclass;
 movieGallery.addEventListener('click', e => {
@@ -30,9 +33,21 @@ movieGallery.addEventListener('click', e => {
   const parent = e.target.closest('div');
   const movieId = parent.getAttribute('data');
   mylibID = movieId;
-
   // show modal after html is rendered. Image is rendering after
   renderModal(movieId).then(() => modal.classList.toggle('is-hidden'));
+});
+
+
+myLibaryGallery.addEventListener('click', e => {
+  //get movie id
+  
+  console.log('image clicked')
+  const parent = e.target.closest('div');
+  const movieId = parent.getAttribute('data');
+  mylibID = movieId;
+//  renderModal(movieId);
+    renderModal(movieId).then(() => modal.classList.toggle('is-hidden'));
+
 });
 
 const modal = document.querySelector('.movie-modal__overlay');
