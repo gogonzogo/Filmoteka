@@ -12,6 +12,8 @@ class Queue {
 }
 
 const movieGallery = document.querySelector('.card-gallery');
+const myLibaryGallery = document.querySelector('.mylibrary-gallery');
+console.log(myLibaryGallery)
 let mylibID = ""
 let mylibtitle = ""
 let mylibgenres = ""
@@ -24,6 +26,18 @@ movieGallery.addEventListener('click', e => {
   const parent = e.target.closest('div');
   const movieId = parent.getAttribute('data');
   mylibID = movieId;
+
+myLibaryGallery.addEventListener('click', e => {
+  //get movie id
+  
+  console.log('image clicked')
+  const parent = e.target.closest('div');
+  const movieId = parent.getAttribute('data');
+  mylibID = movieId;
+//  renderModal(movieId);
+});
+
+
 
   // show modal after html is rendered. Image is rendering after
   renderModal(movieId).then(() => modal.classList.toggle('is-hidden'));

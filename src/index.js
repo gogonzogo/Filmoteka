@@ -15,6 +15,9 @@ const refs = {
   goitLink: document.querySelector('.footer-link'),
   paginationContainer: document.querySelector('.pagination__container'),
   paginationList: document.querySelector('.pagination__list'),
+ cardsDiv: document.querySelector('.card-gallery'),
+  mylibDiv: document.querySelector('.mylibrary-gallery'),
+
 };
 
 export let page = 1;
@@ -30,6 +33,10 @@ function onHomeLinkClick(e) {
   document.body.classList.remove('my-library');
   refs.headerBtnContainer.style.display = 'none';
   refs.userMovieSearchContainer.style.display = 'flex';
+  refs.cardsDiv.style.removeProperty('display');
+  refs.cardsDiv.style.display ='grid';
+  refs.mylibDiv.style.removeProperty('display');
+  refs.mylibDiv.style.display ='none';
   // fetchMovies(); //FETCH AND RENDER TRENDING MOVIES
 }
 
@@ -43,6 +50,10 @@ function onLibraryLinkClick(e) {
   refs.homeLink.classList.remove('active');
   refs.userMovieSearchContainer.style.display = 'none';
   refs.headerBtnContainer.style.display = 'flex';
+   refs.cardsDiv.style.removeProperty('display');
+  refs.cardsDiv.style.display ='none';
+  refs.mylibDiv.style.removeProperty('display');
+  refs.mylibDiv.style.display ='grid';
   document.body.classList.add('my-library');
 
 };
