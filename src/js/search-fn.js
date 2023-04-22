@@ -15,13 +15,12 @@ searchInput.addEventListener(
   'input',
   debounce(async e => {
     const searchResults = await getSearchMovies(e.target.value, 1); // default page 1
-
     if (searchResults.results.length !== 0) {
       failedSearchText.style.display = 'none';
       renderInfo(searchResults.results);
     } else if (e.target.value === '') {
       failedSearchText.style.display = 'none';
-      showTrendingMovies();
+      showTrendingMovies(1);
     } else failedSearchText.style.display = 'block';
   }, 500)
 );
