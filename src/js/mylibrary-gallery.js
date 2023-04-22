@@ -78,6 +78,7 @@ function setUpqueue() {
 
 
 function renderInfo() {
+  let movies;
   if (libType === 'queue') {
     localStorage.setItem('libtype', 'queue')
     const queueSet = (localStorage.getItem('queue') !== null);
