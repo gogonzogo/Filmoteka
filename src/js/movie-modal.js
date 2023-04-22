@@ -19,7 +19,6 @@ class Queue {
 
 const movieGallery = document.querySelector('.card-gallery'); // my-library-update
 const myLibaryGallery = document.querySelector('.mylibrary-gallery');
-console.log(myLibaryGallery)
 let mylibID = ""
 let mylibtitle = ""
 let mylibgenres = ""
@@ -36,7 +35,6 @@ movieGallery.addEventListener('click', e => {
   // show modal after html is rendered. Image is rendering after
   renderModal(movieId).then(() => modal.classList.toggle('is-hidden'));
 });
-
 
 myLibaryGallery.addEventListener('click', e => {
   //get movie id

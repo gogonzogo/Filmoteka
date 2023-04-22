@@ -1,5 +1,5 @@
 import debounce from 'lodash.debounce';
-import { getSearchMovies } from './API-requests.js';
+import { getSearchMovies, showLoadingAnimation } from './API-requests.js';
 import { renderInfo, showTrendingMovies } from './movie-gallery';
 
 const searchInput = document.querySelector('.header__input');
@@ -14,7 +14,6 @@ document
 
 export async function search(page) {
   const searchResults = await getSearchMovies(userInput, page); // default page 1
-
   if (searchResults.results.length !== 0) {
     failedSearchText.style.display = 'none';
     renderInfo(searchResults.results);

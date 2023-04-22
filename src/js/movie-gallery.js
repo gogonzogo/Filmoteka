@@ -2,6 +2,8 @@ import {
   fetchTrendingMovies,
   getMovieInfo,
   getSearchMovies,
+  hideLoadingAnimationWithDelay,
+  showLoadingAnimation,
 } from './API-requests.js';
 import genreList from './genre-list.js';
 import { createPagination } from '../index.js';
@@ -16,6 +18,7 @@ import { search, userInput } from './search-fn.js';
 
 // DOM elements
 const movieList = document.querySelector('.card-gallery');
+const loadingAnimation = document.querySelector('.loading-animation');
 
 // PAGINATION VARIABLES
 let page = 1;
@@ -24,6 +27,7 @@ let currentPage;
 
 // fuction that returns trending movies
 export const showTrendingMovies = async page => {
+  showLoadingAnimation();
   const list = await fetchTrendingMovies(page);
   totalPages = list.data.total_pages;
   currentPage = list.data.page;
@@ -33,6 +37,7 @@ export const showTrendingMovies = async page => {
 };
 
 export function onPaginationItemClick(e) {
+  showLoadingAnimation();
   function renderMore(page) {
     if (!userInput) {
       showTrendingMovies(page);
@@ -83,6 +88,7 @@ function getGenres(genreList, genreIds) {
 export async function renderInfo(movies) {
   updateMoviePosterUrl();
   updateMovieGalleryPosterDimension();
+  // loadingAnimation.style.display = 'none';
 
   function moviePosterFn(movie) {
     if (movie.poster_path) {
@@ -111,4 +117,5 @@ export async function renderInfo(movies) {
                 </ul>`;
     movieList.appendChild(card);
   });
+  hideLoadingAnimationWithDelay(1000);
 }

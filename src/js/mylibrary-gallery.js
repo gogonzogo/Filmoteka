@@ -1,7 +1,10 @@
+import { showLoadingAnimation, hideLoadingAnimationWithDelay } from "./API-requests";
+
 const movieList = document.querySelector('.mylibrary-gallery');
 const watchPress = document.querySelector('#mylibWat');
 const queuePress = document.querySelector('#mylibqueue');
 const mylibClicked = document.querySelector('.library-link');
+const loadingAnimation = document.querySelector('.loading-animation');
 
 
 watchPress.addEventListener('click', setUpWatch);
@@ -9,12 +12,13 @@ queuePress.addEventListener('click', setUpqueue);
 let libType = 'queue';
 let checkclass;
 let acc = '';
- const modelCloseBtn = document.querySelector('.close-button');
+const modelCloseBtn = document.querySelector('.close-button');
 modelCloseBtn.addEventListener('click', setupMyLib);
 mylibClicked.addEventListener('click', setupMyLib);
-  
+
 
 function setupMyLib() {
+  showLoadingAnimation();
   const mylibList = (localStorage.getItem('libtype') !== null);
   if (mylibList) {
     libType = localStorage.getItem('libtype')
@@ -36,13 +40,13 @@ function setupMyLib() {
     libType = 'queue'
 
   }
-   renderInfo()
+  renderInfo()
 }
 
 
 function setUpWatch() {
-  
-    if (libType === 'watch') {
+  showLoadingAnimation();
+  if (libType === 'watch') {
     return
   }
   libType = 'watch'
@@ -55,10 +59,12 @@ function setUpWatch() {
       queuePress.classList.toggle("active-btn");
     }
   }
-   renderInfo()
+  renderInfo()
 }
 
 function setUpqueue() {
+  showLoadingAnimation();
+  loadingAnimation.style.display = 'inline-block';
   if (libType === 'queue') {
     return
   }
@@ -74,7 +80,7 @@ function setUpqueue() {
   renderInfo()
 }
 
-  
+
 
 
 function renderInfo() {
@@ -85,7 +91,7 @@ function renderInfo() {
     if (queueSet) {
       const moviesStorage = localStorage.getItem('queue')
       movies = JSON.parse(moviesStorage)
-  
+
     } else {
       movies = []
     }
@@ -96,24 +102,24 @@ function renderInfo() {
     if (watchSet) {
       const moviesStorage = localStorage.getItem('watch')
       movies = JSON.parse(moviesStorage)
-  
+
     } else {
       movies = []
     }
   }
   movieList.innerHTML = '';
- 
+
   if (movies.length > 0) {
     movies.map(movie => {
-     
-    if (movie.genres.length === 1) {
-      acc = movie.genres[0]
-    } else  if (movie.genres.length === 2) {
-      acc = `${movie.genres[0]}, ${movie.genres[1]}`;
-    } else {
-      acc = `${movie.genres[0]}, ${movie.genres[1]}, Other`;
-    }
-  
+
+      if (movie.genres.length === 1) {
+        acc = movie.genres[0]
+      } else if (movie.genres.length === 2) {
+        acc = `${movie.genres[0]}, ${movie.genres[1]}`;
+      } else {
+        acc = `${movie.genres[0]}, ${movie.genres[1]}, Other`;
+      }
+
       const card = document.createElement('div');
       card.setAttribute('data', movie.id);
       card.classList.add('movie-card');
@@ -132,17 +138,18 @@ function renderInfo() {
       movieList.appendChild(card);
     });
   } else {
-    let nomovie =''
+    let nomovie = ''
     if (libType === 'queue') {
       nomovie = 'Queue List'
     } else {
       nomovie = 'Watched List'
     }
     const card = document.createElement('div');
-      card.classList.add('no-storage');
+    card.classList.add('no-storage');
     card.innerHTML = `<h3>No movies saved in ${nomovie}</h3>`
     movieList.appendChild(card);
   }
+  hideLoadingAnimationWithDelay(1000);
 }
 
 renderInfo()
