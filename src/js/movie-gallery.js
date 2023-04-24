@@ -1,7 +1,5 @@
 import {
   fetchTrendingMovies,
-  getMovieInfo,
-  getSearchMovies,
   hideLoadingAnimationWithDelay,
   showLoadingAnimation,
 } from './API-requests.js';
@@ -9,7 +7,6 @@ import genreList from './genre-list.js';
 import { createPagination } from '../index.js';
 import {
   movieGalleryPosterDimension,
-  MOVIE__POSTERS__URL,
   updateMovieGalleryPosterDimension,
   updateMoviePosterUrl,
 } from './movie-poster-data.js';
@@ -100,21 +97,15 @@ export async function renderInfo(movies) {
   movieList.innerHTML = '';
 
   movies.map(movie => {
-    const card = document.createElement('div');
+    const card = document.createElement('ul');
     card.setAttribute('data', movie.id);
     card.classList.add('movie-card');
-    card.innerHTML = `${moviePosterFn(movie)}
-                <ul class="movie_info">
-                    <li class="movie_title">
-                        ${movie.title}
-                    </li>
-                    <li class="movie_genre">
-                        ${getGenres(genreList, movie.genre_ids)}
-                    </li>
-                    <li class="movie_release-date">
-                        ${new Date(movie.release_date).getFullYear()}
-                    </li>
-                </ul>`;
+    card.innerHTML = `
+      <li class="movie_info">${moviePosterFn(movie)}
+        <p class="movie_title">${movie.title}</p>
+        <span class="movie_genre">${getGenres(genreList, movie.genre_ids)}</span>
+        <span class="movie_release-date">${new Date(movie.release_date).getFullYear()}</span>
+      </li>`;
     movieList.appendChild(card);
   });
   hideLoadingAnimationWithDelay(500);

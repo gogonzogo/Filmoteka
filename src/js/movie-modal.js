@@ -29,7 +29,7 @@ let checkArrary = -1;
 let checkclass;
 movieGallery.addEventListener('click', e => {
   //get movie id
-  const parent = e.target.closest('div');
+  const parent = e.target.closest('ul');
   const movieId = parent.getAttribute('data');
   mylibID = movieId;
   // show modal after html is rendered. Image is rendering after
@@ -39,7 +39,7 @@ movieGallery.addEventListener('click', e => {
 myLibaryGallery.addEventListener('click', e => {
   //get movie id
   
-  console.log('image clicked')
+  // console.log('image clicked')
   const parent = e.target.closest('div');
   const movieId = parent.getAttribute('data');
   mylibID = movieId;
